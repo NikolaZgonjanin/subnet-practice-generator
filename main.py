@@ -11,7 +11,7 @@ MAX_SUBNETS = 5
 
 
 def generate_corrected_subnet_problem_sets(num_sets):
-    markdown_output = "# Zadaci iz podmrežavanja\n\n"
+    markdown_output = "<h1> Zadaci iz podmrežavanja </h1>\n\n"
     for i in range(1, num_sets + 1):
         base_network = f"{random.randint(10, 192)}.{random.randint(0, 255)}.{random.randint(0, 255)}.0/{random.randint(16, 24)}"
         num_subnets = random.randint(MIN_SUBNETS, MAX_SUBNETS)
@@ -39,9 +39,9 @@ def generate_corrected_subnet_problem_sets(num_sets):
         except ValueError:
             continue
 
-        markdown_output += f"## Zadatak {i}\n"
-        markdown_output += "**Mreža:** " + base_network + "\n"
-        markdown_output += "**Broj uređaja po mreži:** " + ", ".join(map(str, sorted(devices_per_subnet, reverse=True))) + "\n\n"
+        markdown_output += f"<h2> Zadatak {i}</h2>\n"
+        markdown_output += "<b>Mreža:</b> " + base_network + "\n"
+        markdown_output += "<b>Broj uređaja po mreži:</b> " + ", ".join(map(str, sorted(devices_per_subnet, reverse=True))) + "\n\n"
         markdown_output += "<details>"
         markdown_output += "<summary>Rešenje</summary>\n"
         markdown_output += "<table><thead><tr><td> Subnet </td><td> Mrežna adresa</td><td>Maska</td><td>Mrežni opseg</td><td>Brodkast</td></tr></thead><tbody>\n"
